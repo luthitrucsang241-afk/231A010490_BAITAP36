@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TK8 - Hex sang RGB</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-gray-100">
+
+
+<div class="max-w-xl mx-auto mt-16 bg-white rounded-xl shadow-lg p-8">
+
+
+<h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">
+
+Bài TK8 - Chuyển đổi Hex sang RGB
+
+</h1>
+
+
+<label class="font-semibold">
+
+Nhập mã màu Hex:
+
+</label>
+
+
+<input 
+id="hexInput"
+type="text"
+placeholder="#FF0000"
+class="w-full border rounded-lg p-3 mt-2 mb-5"
+/>
+
+
+<button onclick="convertHex()"
+class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-bold">
+
+Chuyển đổi
+
+</button>
+
+
+<div class="mt-6 bg-gray-100 p-5 rounded-lg">
+
+
+<p class="text-lg">
+
+Kết quả:
+
+</p>
+
+
+<p id="result"
+class="text-xl font-bold text-red-600 mt-2">
+
+Chưa có kết quả
+
+</p>
+
+
+<div id="colorBox"
+class="w-full h-20 mt-5 rounded-lg border">
+
+</div>
+
+
+</div>
+
+
+
+<div class="text-center mt-8">
+
+<a href="bt36.html"
+class="bg-green-600 text-white px-6 py-3 rounded-lg">
+
+← Quay về Trang Chủ
+
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function convertHex(){
+
+
+let hex = document.getElementById("hexInput").value;
+
+
+// bỏ dấu #
+hex = hex.replace("#","");
+
+
+// kiểm tra độ dài
+
+if(hex.length !== 6){
+
+alert("Vui lòng nhập mã màu Hex 6 ký tự!");
+
+return;
+
+}
+
+
+
+let r = parseInt(hex.substring(0,2),16);
+
+let g = parseInt(hex.substring(2,4),16);
+
+let b = parseInt(hex.substring(4,6),16);
+
+
+
+let rgb = `rgb(${r}, ${g}, ${b})`;
+
+
+
+document.getElementById("result").textContent = rgb;
+
+
+
+document.getElementById("colorBox").style.backgroundColor = rgb;
+
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>

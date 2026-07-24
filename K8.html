@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>K8 - Tính Chỉ Số BMI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-gray-100">
+
+
+<div class="max-w-xl mx-auto mt-12 bg-white p-8 rounded-xl shadow-lg">
+
+
+<h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">
+
+    Bài K8 - Tính Chỉ Số BMI
+
+</h1>
+
+
+<label class="font-semibold">
+
+    Cân nặng (kg):
+
+</label>
+
+
+<input 
+    id="weight"
+    type="number"
+    placeholder="Ví dụ: 60"
+    class="w-full border p-3 rounded-lg mt-2 mb-5"
+/>
+
+
+
+<label class="font-semibold">
+
+    Chiều cao (m):
+
+</label>
+
+
+<input 
+    id="height"
+    type="number"
+    step="0.01"
+    placeholder="Ví dụ: 1.7"
+    class="w-full border p-3 rounded-lg mt-2 mb-5"
+/>
+
+
+
+<button 
+    onclick="calculateBMI()"
+    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-bold">
+
+    Tính BMI
+
+</button>
+
+
+
+<div class="mt-6 bg-gray-100 p-5 rounded-lg">
+
+
+<p id="result" class="text-xl font-bold text-red-600">
+
+    Chưa có kết quả
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="text-center mt-8">
+
+<a href="bt36.html"
+class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg">
+
+    ← Quay về Trang Chủ
+
+</a>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+function calculateBMI(){
+
+
+    let weight = 
+    parseFloat(document.getElementById("weight").value);
+
+
+    let height = 
+    parseFloat(document.getElementById("height").value);
+
+
+
+    if(!weight || !height){
+
+        alert("Vui lòng nhập đầy đủ cân nặng và chiều cao!");
+
+        return;
+
+    }
+
+
+
+    let bmi = weight / (height * height);
+
+
+
+    let category;
+
+
+
+    if(bmi < 18.5){
+
+        category = "Thiếu cân";
+
+    }
+
+    else if(bmi >= 18.5 && bmi < 25){
+
+        category = "Bình thường";
+
+    }
+
+    else if(bmi >= 25 && bmi < 30){
+
+        category = "Thừa cân";
+
+    }
+
+    else{
+
+        category = "Béo phì";
+
+    }
+
+
+
+    document.getElementById("result").innerHTML =
+
+    `
+    BMI của bạn: ${bmi.toFixed(2)}
+    <br>
+    Phân loại: ${category}
+    `;
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

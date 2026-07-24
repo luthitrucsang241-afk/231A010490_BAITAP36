@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TK5 - Accordion đơn giản</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+    background:#f3f4f6;
+}
+
+.accordion{
+    width:600px;
+    margin:auto;
+    margin-top:60px;
+}
+
+button{
+    width:100%;
+    background:#4f46e5;
+    color:white;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+    background:white;
+    border-radius:0 0 8px 8px;
+}
+
+.content p{
+    padding:20px;
+}
+
+button:hover{
+    background:#4338ca;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="accordion">
+
+<h1 class="text-3xl font-bold text-center mb-6 text-indigo-700">
+Bài TK5 - Accordion Đơn Giản
+</h1>
+
+<button onclick="toggleAccordion()">
+Nhấn để mở / đóng nội dung
+</button>
+
+<div id="content" class="content">
+
+<p>
+
+JavaScript là ngôn ngữ lập trình giúp trang web trở nên sinh động.
+Accordion cho phép ẩn hoặc hiện nội dung khi người dùng nhấn vào tiêu đề.
+
+</p>
+
+</div>
+
+<div class="text-center mt-6">
+
+<a href="bt36.html"
+class="bg-green-600 text-white px-6 py-3 rounded-lg">
+
+← Quay về Trang Chủ
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function toggleAccordion(){
+
+const content=document.getElementById("content");
+
+if(content.style.maxHeight){
+
+content.style.maxHeight=null;
+
+}
+else{
+
+content.style.maxHeight=content.scrollHeight+"px";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

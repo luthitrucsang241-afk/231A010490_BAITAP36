@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TK7 - Tạo chuỗi ngẫu nhiên</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<div class="max-w-xl mx-auto mt-16 bg-white p-8 rounded-xl shadow-lg">
+
+    <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">
+        Bài TK7 - Tạo Chuỗi Ngẫu Nhiên
+    </h1>
+
+
+    <p class="text-lg mb-4">
+        Tạo mật khẩu ngẫu nhiên gồm 8 ký tự:
+    </p>
+
+
+    <div class="bg-gray-100 p-4 rounded-lg text-center mb-6">
+
+        <span id="password"
+        class="text-2xl font-bold text-red-600">
+            Chưa có mật khẩu
+        </span>
+
+    </div>
+
+
+    <button onclick="generatePassword()"
+    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-bold">
+
+        Tạo mật khẩu
+
+    </button>
+
+
+    <div class="text-center mt-8">
+
+        <a href="bt36.html"
+        class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg">
+
+            ← Quay về Trang Chủ
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+function generatePassword(){
+
+    const characters =
+    "abcdefghijklmnopqrstuvwxyz0123456789";
+
+
+    let password = "";
+
+
+    for(let i = 0; i < 8; i++){
+
+        let randomIndex =
+        Math.floor(Math.random() * characters.length);
+
+
+        password += characters[randomIndex];
+
+    }
+
+
+    document.getElementById("password").textContent = password;
+
+}
+
+
+</script>
+
+
+</body>
+</html>
